@@ -1,0 +1,30 @@
+def rotatesum(arr,target):
+    d = {}
+    for i in arr:
+        reqsum=target - i
+        if not reqsum in d:
+            d[i]=True
+        else:
+            x,y=reqsum,i
+            x=index(arr,x)
+            y=index(arr,y)
+            temp=arr[x]
+            arr[x]=arr[y]
+            arr[y]=temp
+    return arr
+def index(arr,z):
+    c=0
+    for i in arr:
+        if  i== z:
+            break
+        else:
+            c+=1     
+    return c           
+if __name__=='__main__':
+    arr=[11,15,6,8,9,10]
+    n=len(arr)
+    target=16
+    ans=rotatesum(arr,target)
+    print(ans)
+        
+    
